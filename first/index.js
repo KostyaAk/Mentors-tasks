@@ -10,5 +10,4 @@ import { lowerCase, setSpaces, wordCount, uniqWord } from './module.js';
 // console.log(wordCount('Kostya , i like eat meat!Me too  like ?'));
 
 // fouth method
-
-uniqWord('Kostya , alina !kostya, ?yes yes? no.  KOSTYA alIna  yeS');
+// uniqWord('Kostya , alina !kostya, ?yes yes? no.  KOSTYA alIna  yeS');
