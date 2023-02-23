@@ -32,7 +32,7 @@ export function setSpaces(str) {
 
 export function wordCount(str) {
   // Реализация большая, на случай неверного вввода, как во второй задаче. Если считать, что на вход всегда будет
-  // поступать строка без знаков препинания и лишних пробелов, то решением было бы много меньше
+  // поступать строка без знаков препинания и лишних пробелов, то кода было бы много меньше
   const symbol = [',', '.', '?', '!', ':', ';', '\n'];
   let arr = str.split('');
 
@@ -101,8 +101,14 @@ export function uniqWord(str) {
   );
 
   for (let key of Object.keys(res)) {
-    console.log(
-      `The word "${key}" is included in the string ${res[key]} times `
-    );
+    let temp = res[key];
+    switch (temp) {
+      case 1 || 11 || 21 || 31 || 41 || 51:
+        console.log(`Слово "${key}" встречается ${temp} раз`);
+        break;
+      default:
+        console.log(`Слово "${key}" встречается ${temp} раза`);
+        break;
+    }
   }
 }
