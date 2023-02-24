@@ -7,7 +7,7 @@ import { plus, minus, mult, division } from './module.js';
 // console.log(minus('999', '9999'));
 
 // multiplication
-console.log(mult('100', '5'));
+// console.log(mult('100', '5'));
 
 // division
-// console.log(division('10000','500'))
+console.log(division('10000', '50'));

@@ -70,5 +70,58 @@ export function minus(num1, num2) {
   return swap ? -result : result;
 }
 
-export function mult(num1, num2) {}
-export function division(a, b) {}
+export function mult(num1, num2) {
+  const number1 = num1.split('').reverse();
+  const number2 = num2.split('').reverse();
+  const result = [];
+
+  for (let i = 0; i < number1.length; i++) {
+    for (let j = 0; j < number2.length; j++) {
+      let currNum = number1[i] * number2[j];
+      result[i + j] = result[i + j] ? result[i + j] + currNum : currNum;
+    }
+  }
+
+  for (let i = 0; i < result.length; i++) {
+    let chislo = result[i] % 10;
+    let move = Math.floor(result[i] / 10);
+    result[i] = chislo;
+
+    if (result[i + 1]) {
+      result[i + 1] += move;
+    } else if (move != 0) {
+      result[i + 1] = move;
+    }
+  }
+  return result.reverse().join('');
+}
+
+export function division(num1, num2) {
+  let num = String(num1);
+  let numLength = num.length;
+  let remainder = 0;
+  let result = '';
+  let count = 0;
+  let digit;
+  let temp;
+  while (count < numLength + 3) {
+    //показывать 3 знака после запятой
+    digit = count < numLength ? Number(num[count]) : 0;
+
+    if (count == numLength) {
+      result = result + '.';
+    }
+
+    result = result + Math.floor((digit + remainder * 10) / num2);
+    remainder = (digit + remainder * 10) % num2;
+    count++;
+  }
+
+  temp = result.split('');
+  while (temp[0] === '0') {
+    temp.shift();
+  }
+  result = temp.join('');
+
+  return result;
+}
